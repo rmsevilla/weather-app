@@ -7,14 +7,18 @@
   <body>
     <header class="header">
       <div>
-        <img class="weather-icon-large" src="./public/icons/static-icons/wi_clear-day.svg" data-current-icon />
+        <img class="weather-icon-large" src="./public/icons/animated-icons/clear-day.svg" data-current-icon />
       </div>
       <div class="weather-info">
-        <p class="city" data-current-location>San Francisco</p>
-        <span data-current-temp>31</span>&deg;
-        <p class="weather-description" data-current-desc>Sunny</p>
-        <span data-current-high>H:</span>&deg;
-        <span data-current-low>L:</span>&deg;
+        <div class="city" data-current-location>San Francisco</div>
+        <div class="header-current-temp">
+          <span data-current-temp>31</span>&deg;
+        </div>
+        <div class="weather-description" data-current-desc>Sunny</div>
+        <div class="temp-high-low">
+          <span data-current-high>H:</span>&deg;
+          <span data-current-low>L:</span>&deg;
+        </div>
       </div>
     </header>
     <script type="module" src="/main.js"></script>
