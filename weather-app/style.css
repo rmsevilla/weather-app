@@ -4,9 +4,9 @@
 
 body {
     margin: 1rem;
-    /* background-color: rgb(163, 202, 242); */
+    background-image: linear-gradient(rgb(190, 239, 255), white);
     color: rgb(31, 30, 30);
-    font-family: sans-serif;
+    font-family: 'Sofia Sans Condensed', sans-serif;
 }
 
 .day-section{
@@ -17,11 +17,11 @@ body {
 }
 
 .day-row {
-    background-color:hsl(0, 0%, 91%);
+    background-color:rgb(221, 243, 251);
 }
 
 .day-row:nth-child(2n) {
-    background-color:hsl(0, 0%, 80%);
+    background-color:rgb(255, 255, 255);
 }
 
 .header {
@@ -32,24 +32,30 @@ body {
     font-size: 1.3rem;
 }
 
+.info-deg {
+    font-size: 22px;
+}
+
 .label {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .weather-icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     object-fit: contain;
 }
 
 .weather-icon-row {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.5));
 }
 
 .weather-icon-large {
     width: 12rem;
+    filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.5));
 }
 
 .header-current-temp {
@@ -62,6 +68,7 @@ body {
     align-items: center;
     vertical-align: center;
     gap: 0.5rem;
+    font-size: 28px;
 }
 
 .table {
