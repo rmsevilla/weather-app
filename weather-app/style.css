@@ -4,9 +4,24 @@
 
 body {
     margin: 1rem;
-    background-color: rgb(163, 202, 242);
+    /* background-color: rgb(163, 202, 242); */
     color: rgb(31, 30, 30);
     font-family: sans-serif;
+}
+
+.day-section{
+    width: 100%;
+    text-align: center;
+    border-spacing: 0; 
+    border-radius: 20px !important;
+}
+
+.day-row {
+    background-color:hsl(0, 0%, 91%);
+}
+
+.day-row:nth-child(2n) {
+    background-color:hsl(0, 0%, 80%);
 }
 
 .header {
@@ -17,10 +32,20 @@ body {
     font-size: 1.3rem;
 }
 
+.label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .weather-icon {
     width: 40px;
     height: 40px;
     object-fit: contain;
+}
+
+.weather-icon-row {
+    width: 60px;
+    height: 60px;
 }
 
 .weather-icon-large {
@@ -35,7 +60,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    vertical-align: center;
     gap: 0.5rem;
+}
+
+.table {
+    border-radius: 9%;
+    overflow: hidden;
 }
 
 .temp-high-low {
