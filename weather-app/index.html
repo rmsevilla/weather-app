@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="blurred">
     <header class="header">
       <div>
         <img class="weather-icon-large" src="./public/icons/animated-icons/clear-day.svg" data-current-icon />
@@ -326,6 +326,7 @@
     </template>
 
     <!-- Day Section -->
+    <template id = "day-row-section">
     <table class="table table-striped border border-dark shadow p-3 mb-5 day-section">
       <tbody data-day-section>
         <tr class="day-row">
@@ -484,6 +485,7 @@
         </tr>
       </tbody>
     </table>
+  </template>
 
     </table>
     <script type="module" src="/main.js"></script>
