@@ -9,10 +9,10 @@ getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone)
         alert("Error getting weather.")
     })
 
-function renderWeather({current, daily, hourly}) {
+function renderWeather({current, hourly, daily}) {
     renderCurrentWeather(current)
-    // renderDailyWeather(daily)
-    // renderHourlyWeather(hourly)
+    renderHourlyWeather(hourly)
+    renderDailyWeather(daily)
     document.body.classList.remove("blurred")
 }
 
@@ -36,7 +36,20 @@ function renderCurrentWeather(current) {
     // setValue("current-precip", current.precip)
 }
 
-const dailySection = document.querySelector("[data-day-section]")
-function renderDailyWeather(daily) {
-
+const HOUR_FORMATTER = new Intl.DateTimeFormat(undefined, {hour: "numeric"})
+const hourlySection = document.querySelector("[data-hour-section]")
+const hourRowTemplate = document.getElementById("hour-row-template")
+function renderHourlyWeather(hourly) {
+    hourlySection.innerHTML = ""
+    hourly.forEach(hour => {
+        const element = hourRowTemplate.content.cloneNode(true)
+        setValue("temp", hour.temp, { parent: element})
+        setValue("fl-temp", hour.feelsLike, { parent: element})
+        setValue("wind", hour.windSpeed, { parent: element})
+        setValue("precip", hour.precip, { parent: element})
+        setValue("day", DAY_FORTMATTER.format(hour.timestamp), { parent: element})
+        setValue("time", HOUR_FORMATTER.format(hour.timestamp), { parent: element})
+        element.querySelector("[data-icon").src = getIconUrl(hour.iconCode)
+        hourlySection.append(element)
+    })
 }
