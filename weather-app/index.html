@@ -277,56 +277,7 @@
       </tbody>
     </table>
 
-    <!-- TEMPLATE
-    <template id="day-card-template">
-      <div class="day-card">
-        <img data-icon class="weather-icon" />
-        <div class="day-card-day" date-date></div>
-        <div><span data-temp></span><span>&deg;</span></div>
-      </div>
-    </template>
-
-    <template id="hour-row-template">
-      <tr class="hour-row">
-        <td>
-          <div class="info-group">
-            <div class="label" data-day></div>
-            <div data-time></div>
-          </div>
-        </td>
-        <td>
-          <img data-icon class="weather-icon">
-        </td>
-        <td>
-          <div class="info-group">
-            <div class="label">Temp</div>
-            <div><span data-temp></span><span>&deg;</span></div>
-          </div>
-        </td>
-        <td>
-          <div class="info-group">
-            <div class="label">FL Temp</div>
-            <div><span data-fl-temp></span><span>&deg;</span></div>
-          </div>
-        </td>
-        <td>
-          <div class="info-group">
-            <div class="label">Wind</div>
-            <div><span data-wind></span><span class="value-sub-info">mph</span></div>
-          </div>
-        </td>
-        <td>
-          <div class="info-group">
-            <div class="label">Precip</div>
-            <div><span data-precip></span><span class="value-sub-info">in</span></div>
-          </div>
-        </td>
-      </tr>
-      
-    </template> -->
-
     <!-- Day Section -->
-    <!-- <template id = "day-card-section"> -->
     <table class="table table-striped border border-dark shadow p-3 mb-5 day-section">
       <tbody data-day-section>
         <tr class="day-row">
@@ -485,57 +436,81 @@
         </tr>
       </tbody>
     </table>
-  <!-- </template> -->
 
-  <!-- TEMPLATE -->
-  <template id="day-card-template">
-    <div class="day-row">
-      <img data-icon class="weather-icon" />
-      <div class="day-card-day" data-date></div>
-      <div><span data-temp></span><span>&deg;</span></div>
-    </div>
-  </template>
+    <!-- TEMPLATE -->
+    <!-- <template id="day-card-template">
+      <div class="day-card">
+        <img data-icon class="weather-icon" />
+        <div class="day-card-day" data-date></div>
+        <div><span data-temp></span><span>&deg;</span></div>
+      </div>
+    </template> -->
 
-  <template id="hour-row-template">
-    <tr class="hour-row">
-      <td>
-        <div class="info-group">
-          <div class="label" data-day></div>
-          <div data-time></div>
-        </div>
-      </td>
-      <td>
-        <img data-icon class="weather-icon">
-      </td>
-      <td>
-        <div class="info-group">
-          <div class="label">Temp</div>
-          <div><span data-temp></span><span>&deg;</span></div>
-        </div>
-      </td>
-      <td>
-        <div class="info-group">
-          <div class="label">FL Temp</div>
-          <div><span data-fl-temp></span><span>&deg;</span></div>
-        </div>
-      </td>
-      <td>
-        <div class="info-group">
-          <div class="label">Wind</div>
-          <div><span data-wind></span><span class="value-sub-info">mph</span></div>
-        </div>
-      </td>
-      <td>
-        <div class="info-group">
-          <div class="label">Precip</div>
-          <div><span data-precip></span><span class="value-sub-info">in</span></div>
-        </div>
-      </td>
-    </tr>
-    
-  </template>
+    <template id="hour-row-template">
+      <tr class="hour-row">
+        <td>
+          <div class="info-group">
+            <div class="label" data-day></div>
+            <div data-time></div>
+          </div>
+        </td>
+        <td>
+          <img data-icon class="weather-icon">
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">Temp</div>
+            <div><span data-temp></span><span>&deg;</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">FL Temp</div>
+            <div><span data-fl-temp></span><span>&deg;</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">Wind</div>
+            <div><span data-wind></span><span class="value-sub-info">mph</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">Precip</div>
+            <div><span data-precip></span><span class="value-sub-info">in</span></div>
+          </div>
+        </td>
+      </tr>
+      
+    </template> -->
 
-    <!-- </table> -->
+    <template id="day-row-template">
+      <tr class="day-row">
+        <td>
+          <div class="info-group">
+            <div class="label" data-date></div>
+          </div>
+        </td>
+        <td>
+          <img data-icon class="weather-icon">
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">Low</div>
+            <div><span data-temp-low></span><span>&deg;</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">High</div>
+            <div><span data-temp-high></span><span>&deg;</span></div>
+          </div>
+        </td>
+      </tr>
+      
+    </template>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
