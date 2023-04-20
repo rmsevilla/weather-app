@@ -42,9 +42,10 @@ body {
 }
 
 .weather-icon {
-    width: 45px;
-    height: 45px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
+    filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.5));
 }
 
 .weather-icon-row {

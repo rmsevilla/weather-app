@@ -11,7 +11,7 @@ getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone)
 
 function renderWeather({current, daily, hourly}) {
     renderCurrentWeather(current)
-    // renderDailyWeather(daily)
+    renderDailyWeather(daily)
     // renderHourlyWeather(hourly)
     document.body.classList.remove("blurred")
 }
@@ -36,7 +36,17 @@ function renderCurrentWeather(current) {
     // setValue("current-precip", current.precip)
 }
 
+const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, {weekday: "long"})
 const dailySection = document.querySelector("[data-day-section]")
+const dayRowTemplate = document.getElementById("day-row-template")
 function renderDailyWeather(daily) {
-
+    dailySection.innerHTML = ""
+    daily.forEach(day => {
+        const element = dayRowTemplate.content.cloneNode(true);
+        setValue("date", DAY_FORMATTER.format(day.timestamp), {parent: element})
+        setValue("temp-high", day.maxTemp, {parent: element})
+        setValue("temp-low", day.lowTemp, {parent: element})
+        element.querySelector("[data-icon]").src = getIconUrl(day.iconCode);
+        dailySection.appendChild(element)
+    })
 }

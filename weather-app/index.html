@@ -278,13 +278,13 @@
     </table>
 
     <!-- TEMPLATE -->
-    <template id="day-card-template">
+    <!-- <template id="day-card-template">
       <div class="day-card">
         <img data-icon class="weather-icon" />
-        <div class="day-card-day" date-date></div>
+        <div class="day-card-day" data-date></div>
         <div><span data-temp></span><span>&deg;</span></div>
       </div>
-    </template>
+    </template> -->
 
     <template id="hour-row-template">
       <tr class="hour-row">
@@ -298,7 +298,7 @@
           <img data-icon class="weather-icon">
         </td>
         <td>
-          <div class="info-group">n
+          <div class="info-group">
             <div class="label">Temp</div>
             <div><span data-temp></span><span>&deg;</span></div>
           </div>
@@ -325,8 +325,33 @@
       
     </template>
 
+    <template id="day-row-template">
+      <tr class="day-row">
+        <td>
+          <div class="info-group">
+            <div class="label" data-date></div>
+          </div>
+        </td>
+        <td>
+          <img data-icon class="weather-icon">
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">Low</div>
+            <div><span data-temp-low></span><span>&deg;</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="info-group">
+            <div class="label">High</div>
+            <div><span data-temp-high></span><span>&deg;</span></div>
+          </div>
+        </td>
+      </tr>
+      
+    </template>
+
     <!-- Day Section -->
-    <template id = "day-row-section">
     <table class="table table-striped border border-dark shadow p-3 mb-5 day-section">
       <tbody data-day-section>
         <tr class="day-row">
@@ -485,7 +510,6 @@
         </tr>
       </tbody>
     </table>
-  </template>
 
     </table>
     <script type="module" src="/main.js"></script>
