@@ -1,5 +1,42 @@
 import axios from "axios"
 
+export function getCityName(lat, lon) {
+    return axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)    
+    .then(({data}) => {
+            const city = data.address.city;
+            return city;
+        })
+        .catch(error => {
+            console.error("Error getting city name:", error);
+        });
+}
+
+export function getCityNameGeolocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                resolve({lat, lon});
+            },
+            (error) => {
+                console.error("Error getting geolocation: ", error);
+                reject(error);
+            }
+        );
+    })
+    .then(({lat, lon}) => {
+        return getCityName(lat, lon);
+    })
+    .then(cityName => {
+        console.log("City Name: ", cityName);
+        return cityName;
+    })
+    .catch(error => {
+        console.error("Error getting city name from geolocation: ", error);
+    });
+}
+
 export function getWeather(lat, lon, timezone) {
    return axios.get("https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timeformat=unixtime",
  { 
@@ -15,15 +52,15 @@ export function getWeather(lat, lon, timezone) {
         current: parseCurrentWeather(data),
         daily: parseDailyWeather(data),
         hourly: parseHourlyWeather(data)
-    }
- })
+    };
+ });
 }
 
 function parseCurrentWeather({current_weather, daily}) {
     const { 
         temperature: currentTemp,
         windspeed: windSpeed,
-        weathercode: iconCode 
+        weathercode: iconCode,
     } = current_weather
     const {
         temperature_2m_max: [maxTemp],
@@ -43,7 +80,7 @@ function parseCurrentWeather({current_weather, daily}) {
         lowFeelsLike: Math.round(minFeelsLike),
         windSpeed: Math.round(windSpeed),
         precip: Math.round(precip * 100) / 100,
-        iconCode,
+        iconCode
     }
 }
 

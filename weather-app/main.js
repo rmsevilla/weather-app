@@ -1,5 +1,6 @@
 import "./style.css"
 import { getWeather } from "./weather"
+import { getCityName } from "./weather"
 import { ICON_MAP } from "./iconMap"
 
 navigator.geolocation.getCurrentPosition(positionSuccess, positionError)
@@ -14,7 +15,16 @@ function positionSuccess({coords}) {
     .catch(e => {
         console.error(e)
         alert("Error getting weather")
-    })
+    });
+
+    getCityName(coords.latitude, coords.longitude)
+        .then(cityName => {
+            setValue("current-city", cityName);
+        })
+        .catch(e => {
+            console.error(e);
+            alert("Error getting city name");
+        });
 }
 
 function positionError() {
@@ -55,7 +65,9 @@ const hourlySection = document.querySelector("[data-hour-section]")
 const hourRowTemplate = document.getElementById("hour-row-template")
 function renderHourlyWeather(hourly) {
     hourlySection.innerHTML = ""
-    hourly.forEach(hour => {
+    const now = new Date().getTime();
+    const filteredHourly = hourly.filter((hour) => hour.timestamp >= now && hour.timestamp <= now + 6 * 3600 *1000);
+    filteredHourly.forEach(hour => {
         const element = hourRowTemplate.content.cloneNode(true)
         setValue("temp", hour.temp, { parent: element})
         setValue("fl-temp", hour.feelsLike, { parent: element})
